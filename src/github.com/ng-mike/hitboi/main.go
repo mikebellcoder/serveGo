@@ -9,7 +9,12 @@ func main() {
 		fmt.Printf("%b\n", count)
 		fmt.Printf("%#x\n", count)
 		if count == 0 {
+<<<<<<< HEAD
 			fmt.Printf("Baby!")
+=======
+			fmt.Printf("HitBoi")
+			fmt.Printf("HitBoi")
+>>>>>>> save from core on Self Branch
 		}
 		time.Sleep(time.Second)
 	}
