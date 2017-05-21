@@ -9,7 +9,7 @@ func main() {
 		fmt.Printf("%b\n", count)
 		fmt.Printf("%#x\n", count)
 		if count == 0 {
-			fmt.Printf("HitBoi")
+			fmt.Printf("Baby!")
 		}
 		time.Sleep(time.Second)
 	}
