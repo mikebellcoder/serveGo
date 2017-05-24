@@ -1,40 +1,25 @@
-<<<<<<< HEAD
 package main
 
 import "fmt"
-import "time"
+
+var pgkScope = 0
 
 func main() {
-	for count := 20; count >= 0; count-- {
-		fmt.Printf("%v\n", count)
-		fmt.Printf("%b\n", count)
-		fmt.Printf("%#x\n", count)
-		if count == 0 {
-			fmt.Printf("Take off!")
-		}
-		time.Sleep(time.Second)
+	incPgkScope := func() int {
+		pgkScope++
+		return pgkScope
 	}
-}
-=======
-package main
-
-import "fmt"
-import "time"
-
-func main() {
-	for count := 20; count >= 0; count-- {
-		fmt.Printf("%v\n", count)
-		fmt.Printf("%b\n", count)
-		fmt.Printf("%#x\n", count)
-		if count == 0 {
-<<<<<<< HEAD
-			fmt.Printf("Baby!")
-=======
-			fmt.Printf("HitBoi")
-			fmt.Printf("HitBoi")
->>>>>>> save from core on Self Branch
-		}
-		time.Sleep(time.Second)
+	funcScope := incPgkScope()
+	count := func() int {
+		funcScope++
+		return funcScope
 	}
+
+	for i := 0; i < 10; i++ {
+		fmt.Printf("pgkScope value is: %v\n", pgkScope)
+		fmt.Printf("funcScope value is: %v\n", funcScope)
+		fmt.Printf("%v\n", count())
+
+	}
+
 }
->>>>>>> self
