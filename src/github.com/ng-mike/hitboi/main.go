@@ -1,25 +1,24 @@
 package main
 
-import "fmt"
-
-var pgkScope = 0
+import (
+	"errors"
+	"fmt"
+	"log"
+)
 
 func main() {
-	incPgkScope := func() int {
-		pgkScope++
-		return pgkScope
+	arr, err := getColl()
+	if err != nil {
+		log.Fatal(err)
 	}
-	funcScope := incPgkScope()
-	count := func() int {
-		funcScope++
-		return funcScope
+	for _, element := range arr {
+		fmt.Println(element)
 	}
 
-	for i := 0; i < 10; i++ {
-		fmt.Printf("pgkScope value is: %v\n", pgkScope)
-		fmt.Printf("funcScope value is: %v\n", funcScope)
-		fmt.Printf("%v\n", count())
+}
 
-	}
-
+func getColl() ([]string, error) {
+	coll := []string{"GoLang", "JavaScript", "T-SQL", "Angular", "MongoDB"}
+	err := errors.New("Error happens")
+	return coll, err
 }
